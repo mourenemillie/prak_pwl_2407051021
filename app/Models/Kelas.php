@@ -12,6 +12,12 @@ class Kelas extends Model
     protected $guarded= ['id'];
     public function users ()
     {
-        return $this ->hasMany (Usermodel::class, 'kelas_id');
+        return $this ->all ();
     }
+    public function getKelas()
+    {
+        return $this->all();
+    }
+
+
 }
