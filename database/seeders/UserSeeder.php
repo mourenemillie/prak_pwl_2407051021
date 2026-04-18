@@ -27,6 +27,20 @@ class UserSeeder extends Seeder
         }
 
         UserModel::factory()->count(50)->create();
+
+        $dosen = UserModel::firstOrCreate([
+            'name' => 'DosenIlkomp',
+            'npm' => '1234567890',
+            'kelas_id' => Kelas::where('nama_kelas', 'B')->first()->id
+        ]);
+
+        $dosen->assignRole('dosen');
+
+        $mahasiswa = UserModel::firstOrCreate([
+            'name' => 'MahasiswaIlkomp',
+            'npm' => '1234567891',
+            'kelas_id' => Kelas::where('nama_kelas', 'A')->first()->id
+        ]);
     }
 }
 
