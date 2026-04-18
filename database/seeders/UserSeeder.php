@@ -17,6 +17,8 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Fikri',
                 'npm' => '2317051061',
+                'email' => 'fikri@example.com',
+                'password' => bcrypt('password'),
                 'kelas_id' => Kelas::where('nama_kelas', 'A')->first()->id ?? 1
             ]
         ];
@@ -31,6 +33,8 @@ class UserSeeder extends Seeder
         $dosen = UserModel::firstOrCreate([
             'name' => 'DosenIlkomp',
             'npm' => '1234567890',
+            'email' => 'dosen@example.com',
+            'password' => bcrypt('password'),
             'kelas_id' => Kelas::where('nama_kelas', 'B')->first()->id
         ]);
 
@@ -39,6 +43,8 @@ class UserSeeder extends Seeder
         $mahasiswa = UserModel::firstOrCreate([
             'name' => 'MahasiswaIlkomp',
             'npm' => '1234567891',
+            'email' => 'mahasiswa@example.com',
+            'password' => bcrypt('password'),
             'kelas_id' => Kelas::where('nama_kelas', 'A')->first()->id
         ]);
     }

@@ -9,7 +9,7 @@ use App\Models\Kelas;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\UserModel>
  */
-class UserFactory extends Factory
+class UserModelFactory extends Factory
 {
     protected $model = UserModel::class;
 
@@ -22,6 +22,8 @@ class UserFactory extends Factory
     {
         return [
             'name' => fake()->name(),
+            'email' => fake()->unique()->safeEmail(),
+            'password' => bcrypt('password'),
             'npm' => fake()->numerify('##########'), // 10 digit NPM
             'kelas_id' => Kelas::inRandomOrder()->first()->id ?? 1,
         ];
